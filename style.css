@@ -1,0 +1,324 @@
+/* Font family: Use Google Fonts for easy, readable fonts */
+body {
+  font-family: 'Nunito', Arial, sans-serif; /* Soft, rounded font for body */
+  background-color: #f6fcf7; /* Very light green background */
+  color: #234e4e; /* Deep teal for text */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Prevents unwanted gaps on the right */
+  overflow-x: hidden; /* Prevents horizontal scroll and right gap */
+}
+
+header, .logo, nav a {
+  font-family: 'Montserrat', Arial, sans-serif; /* Clean, modern font for headings and nav */
+}
+
+/* Eco-friendly color palette */
+header {
+  background-color: #a8e6cf; /* Soft green */
+}
+
+.menu-toggle {
+  color: #234e4e; /* Deep teal for hamburger */
+}
+
+nav a {
+  color: #234e4e; /* Deep teal for nav links */
+  background: #d0f4ff; /* Soft blue background for nav links */
+}
+
+nav a:hover {
+  background: #b2ebf2; /* Slightly deeper blue on hover */
+  color: #388e3c; /* Green accent on hover */
+}
+
+nav ul {
+  background: #a8e6cf; /* Match header background for dropdown */
+}
+
+/* Header styles */
+header {
+  display: flex; /* Places logo and nav side by side */
+  flex-direction: column; /* Stack items for mobile first */
+  align-items: center; /* Center items horizontally */
+  background-color: #4fc3f7; /* Light blue background */
+  padding: 16px 0; /* Space above and below header */
+  position: relative; /* Needed for absolute nav positioning */
+}
+
+.logo {
+  font-size: 2rem; /* Make logo text bigger */
+  font-weight: bold; /* Make logo text bold */
+  color: #fff; /* White text color */
+  margin-bottom: 8px; /* Space below logo */
+}
+
+nav {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  justify-content: flex-end; /* Align nav to right */
+  position: static; /* Remove absolute positioning */
+}
+
+nav ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  display: none; /* Hide navigation menu by default on mobile */
+  width: 100%; /* Make dropdown full width on mobile */
+  flex-direction: column; /* Stack links vertically */
+  background: #4fc3f7; /* Match header background */
+  position: absolute; /* Position dropdown below header */
+  top: 60px; /* Adjust as needed for header height */
+  left: 0;
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
+  z-index: 10;
+}
+
+/* Hamburger menu button styles (hidden by default) */
+.menu-toggle {
+  display: block; /* Show on mobile */
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+nav a {
+  text-decoration: none; /* Remove underline from links */
+  color: #fff; /* White link color */
+  font-size: 1.1rem; /* Slightly larger text */
+  padding: 6px 12px; /* Add space around links */
+  border-radius: 4px; /* Rounded corners */
+  transition: background 0.2s; /* Smooth hover effect */
+}
+
+nav a:hover {
+  background: #0288d1; /* Darker blue on hover */
+}
+
+/* Show navigation menu when active (dropdown) */
+nav.active ul {
+  display: flex;
+}
+
+/* Hero section styles */
+.hero {
+  /* Use the travel ss livelab.jpg image as background with a soft gradient overlay for readability */
+  background: linear-gradient(120deg, rgba(168,230,207,0.7) 60%, rgba(208,244,255,0.7) 100%),
+    url('travel ss livelab.jpg') center/cover no-repeat; /* Sets a background image and gradient overlay */
+  min-height: 500px; /* Sets the minimum height of the hero section */
+  display: flex; /* Uses flexbox for easy centering */
+  flex-direction: column; /* Stacks content vertically */
+  align-items: center; /* Centers content horizontally */
+  justify-content: center; /* Centers content vertically */
+  text-align: center; /* Centers text inside the hero */
+  padding: 40px 16px; /* Adds space inside the hero section */
+  border-radius: 0 0 24px 24px; /* Rounds the bottom corners of the hero */
+  margin-bottom: 24px; /* Adds space below the hero section */
+}
+
+.hero h1 {
+  font-family: 'Montserrat', Arial, sans-serif; /* Sets the font for the headline */
+  font-size: 2.2rem; /* Makes the headline large */
+  color: #234e4e; /* Sets the headline color */
+  margin-bottom: 12px; /* Adds space below the headline */
+}
+
+.hero p {
+  font-family: 'Nunito', Arial, sans-serif; /* Sets the font for the subtext */
+  font-size: 1.2rem; /* Makes the subtext a bit larger */
+  color: #388e3c; /* Sets the subtext color to a green accent */
+  margin: 0; /* Removes default margin */
+}
+
+/* Destinations cards section styles */
+.destinations {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to next line */
+  gap: 24px; /* Space between cards */
+  justify-content: center; /* Center cards horizontally */
+  padding: 24px 16px;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  min-height: 400px; /* Increased height for longer cards */
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  align-items: stretch; /* Make sure card-content fills the card width */
+}
+
+.card-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.card-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: none; /* Remove white box */
+  padding: 20px 0 16px 0;
+  border-radius: 0 0 16px 16px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+}
+
+.card-content h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 12px 0;
+  color: #a8e6cf; /* Lighter green color for destination names */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5); /* Shadow for readability */
+}
+
+.card-content p {
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  color: #388e3c;
+  line-height: 1.5; /* Improve readability for longer text */
+  text-align: center; /* Center the description text */
+}
+
+/* Plan Your Trip box styles */
+.plan-trip-box {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+.plan-trip-box a {
+  display: inline-block;
+  background: #388e3c;
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.3rem;
+  padding: 18px 40px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s, transform 0.2s;
+  font-weight: bold;
+}
+.plan-trip-box a:hover {
+  background: #2e7031;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Signup form styles */
+.signup-section {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #f6fcf7;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  text-align: center;
+}
+.signup-section h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.7rem;
+  margin-bottom: 24px;
+  color: #234e4e;
+}
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.signup-form label {
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 1rem;
+  color: #234e4e;
+  text-align: left;
+}
+.signup-form input {
+  padding: 8px 10px;
+  border: 1px solid #a8e6cf;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Nunito', Arial, sans-serif;
+}
+.signup-form button {
+  background: #388e3c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.signup-form button:hover {
+  background: #2e7031;
+}
+
+/* Show 2 cards per row on screens wider than 700px */
+@media (min-width: 701px) {
+  .destinations {
+    flex-wrap: wrap;
+  }
+  .card {
+    flex: 1 1 calc(50% - 24px); /* 2 cards per row, minus gap */
+    max-width: 350px;
+  }
+}
+
+/* Stack cards vertically on small screens */
+@media (max-width: 700px) {
+  .destinations {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Responsive: On larger screens, stretch nav horizontally */
+@media (min-width: 600px) {
+  header {
+    flex-direction: row; /* Place logo and nav side by side */
+    justify-content: space-between; /* Space out logo and nav */
+    align-items: center;
+    padding: 16px 32px;
+  }
+  .logo {
+    margin-bottom: 0; /* Remove space below logo */
+  }
+  nav ul {
+    display: flex !important; /* Always show nav links */
+    flex-direction: row; /* Stretch links horizontally */
+    align-items: center;
+    justify-content: flex-end;
+    position: static;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 16px; /* More space between links */
+  }
+  .menu-toggle {
+    display: none; /* Hide hamburger on desktop */
+  }
+}
